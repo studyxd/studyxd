@@ -1,0 +1,12 @@
+{
+  "types": {
+    "published": "datetime",
+    "day": "date",
+    "date": "date",
+    "reads": "number",
+    "pages": "number",
+    "cssclasses": "multitext",
+    "aliases": "aliases",
+    "tags": "tags"
+  }
+}

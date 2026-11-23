@@ -1,0 +1,66 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'file.inFolder("indexes/articles")'
+    - 'kind == "article"'
+formulas:
+  stage_col: "stage"
+properties:
+  note.title:
+    displayName: "标题"
+  note.date:
+    displayName: "日期"
+  note.stage:
+    displayName: "进度"
+  note.summary:
+    displayName: "摘要"
+  note.year:
+    displayName: "年份"
+  formula.stage_col:
+    displayName: "进度"
+views:
+  - type: cards
+    name: "时间线"
+    order:
+      - title
+      - date
+      - stage
+      - summary
+    sort:
+      - property: date
+        direction: DESC
+    image: note.cover
+    imageAspectRatio: 0.62
+    cardSize: 240
+  - type: table
+    name: "按年份"
+    groupBy:
+      property: note.year
+      direction: DESC
+    order:
+      - title
+      - date
+      - stage
+      - summary
+    sort:
+      - property: date
+        direction: DESC
+  - type: kanban
+    name: "写作进度"
+    groupBy:
+      property: formula.stage_col
+      direction: ASC
+    groupOrder:
+      - "调研中"
+      - "写作中"
+      - "已完稿"
+    order:
+      - title
+      - date
+      - summary
+    sort:
+      - property: date
+        direction: DESC
+    image: note.cover
+    imageAspectRatio: 0.62
+    columnWidth: 280

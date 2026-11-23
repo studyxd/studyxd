@@ -1,0 +1,62 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'file.inFolder("topic-radar/items")'
+    - 'kind == "wechat"'
+properties:
+  note.title:
+    displayName: "标题"
+  note.account:
+    displayName: "公众号"
+  note.published:
+    displayName: "发布时间"
+  note.reads:
+    displayName: "阅读"
+  note.status:
+    displayName: "状态"
+  note.digest:
+    displayName: "摘要"
+views:
+  - type: cards
+    name: "最近 7 天"
+    filters:
+      and:
+        - 'day >= today() - "6d"'
+    order:
+      - title
+      - account
+      - published
+      - reads
+    sort:
+      - property: published
+        direction: DESC
+    image: note.cover
+    imageAspectRatio: 0.56
+    cardSize: 260
+  - type: cards
+    name: "今天"
+    filters:
+      and:
+        - 'day == today()'
+    order:
+      - title
+      - account
+      - published
+      - reads
+    sort:
+      - property: published
+        direction: DESC
+    image: note.cover
+    imageAspectRatio: 0.56
+    cardSize: 260
+  - type: table
+    name: "全部"
+    order:
+      - title
+      - account
+      - published
+      - status
+      - reads
+    sort:
+      - property: published
+        direction: DESC

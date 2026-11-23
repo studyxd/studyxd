@@ -1,0 +1,52 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'file.inFolder("topic-radar/items")'
+    - 'kind == "wechat"'
+properties:
+  note.title:
+    displayName: "标题"
+  note.account:
+    displayName: "公众号"
+  note.published:
+    displayName: "发布时间"
+  note.reads:
+    displayName: "阅读"
+  note.status:
+    displayName: "状态"
+views:
+  - type: kanban
+    name: "阅读进度"
+    groupBy:
+      property: note.status
+      direction: ASC
+    groupOrder:
+      - "待看"
+      - "可借鉴"
+      - "已看"
+    order:
+      - title
+      - account
+      - published
+      - reads
+    sort:
+      - property: published
+        direction: DESC
+    image: note.cover
+    imageAspectRatio: 0.56
+    columnWidth: 280
+  - type: cards
+    name: "选题池"
+    filters:
+      and:
+        - 'status == "可借鉴"'
+    order:
+      - title
+      - account
+      - published
+    sort:
+      - property: published
+        direction: DESC
+    image: note.cover
+    imageAspectRatio: 0.56
+    cardSize: 260

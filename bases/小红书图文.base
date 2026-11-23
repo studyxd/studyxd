@@ -1,0 +1,46 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - 'file.inFolder("indexes/social")'
+    - 'kind == "social"'
+properties:
+  note.title:
+    displayName: "标题"
+  note.pages:
+    displayName: "页数"
+  note.status:
+    displayName: "状态"
+  note.source:
+    displayName: "来源"
+views:
+  - type: cards
+    name: "图文"
+    order:
+      - title
+      - pages
+      - status
+    sort:
+      - property: file.name
+        direction: ASC
+    image: note.cover
+    imageAspectRatio: 1.3333
+    cardSize: 180
+  - type: kanban
+    name: "发布进度"
+    groupBy:
+      property: note.status
+      direction: ASC
+    groupOrder:
+      - "制作中"
+      - "待发布"
+      - "已发布"
+    order:
+      - title
+      - pages
+      - source
+    sort:
+      - property: file.name
+        direction: ASC
+    image: note.cover
+    imageAspectRatio: 1.3333
+    columnWidth: 220
