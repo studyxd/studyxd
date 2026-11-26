@@ -1,0 +1,108 @@
+/* 写作工作台：卡片圆角、阴影，以及首页四张统计卡。 */
+
+body {
+  --bases-cards-border-width: 0px;
+  --bases-cards-shadow: 0 8px 22px rgba(24, 28, 36, 0.08);
+  --bases-cards-shadow-hover: 0 14px 30px rgba(24, 28, 36, 0.14);
+  --bases-cards-container-background: transparent;
+  --bases-embed-border-width: 0px;
+  --bases-cards-cover-background: var(--background-secondary);
+}
+
+.theme-dark {
+  --bases-cards-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  --bases-cards-shadow-hover: 0 14px 30px rgba(0, 0, 0, 0.48);
+}
+
+.bases-cards-item,
+.bases-kanban-card,
+.bases-kanban-item {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--background-primary);
+  box-shadow: 0 8px 22px rgba(24, 28, 36, 0.08);
+}
+
+.theme-dark .bases-cards-item,
+.theme-dark .bases-kanban-card,
+.theme-dark .bases-kanban-item {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.bases-cards-cover,
+.bases-kanban-card .bases-cards-cover {
+  border-radius: 16px 16px 0 0;
+}
+
+.writing-dashboard .markdown-preview-sizer {
+  max-width: 1180px;
+  width: 100%;
+}
+
+.writing-dashboard h1 {
+  letter-spacing: -0.03em;
+  margin-bottom: 0.2em;
+}
+
+.writing-dashboard h2 {
+  margin-top: 1.8em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.writing-dashboard .bases-embed[alt~="stat"] {
+  display: inline-block;
+  width: calc(25% - 10px);
+  min-width: 180px;
+  margin: 0 10px 12px 0;
+  vertical-align: top;
+  padding: 6px 10px 10px;
+  border-radius: 16px;
+  background: var(--background-primary);
+  box-shadow: 0 8px 22px rgba(24, 28, 36, 0.08);
+  --bases-header-height: 36px;
+  --bases-header-border-width: 0;
+  --bases-toolbar-badge-display: none;
+  --bases-table-column-min-width: 64;
+  --bases-table-row-height: 0px;
+  --bases-table-container-border-width: 0px;
+  --bases-embed-border-width: 0px;
+}
+
+.theme-dark .writing-dashboard .bases-embed[alt~="stat"] {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.writing-dashboard .bases-embed[alt~="stat"] .bases-tbody,
+.writing-dashboard .bases-embed[alt~="stat"] .bases-table-body {
+  display: none;
+}
+
+.writing-dashboard .bases-embed[alt~="stat"] .bases-thead {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.writing-dashboard .bases-embed[alt~="stat"] .bases-table-footer {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.writing-dashboard .bases-embed[alt~="xhs"] {
+  --bases-cards-scale: 1;
+}
+
+@media (max-width: 900px) {
+  .writing-dashboard .bases-embed[alt~="stat"] {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 560px) {
+  .writing-dashboard .bases-embed[alt~="stat"] {
+    width: 100%;
+  }
+}

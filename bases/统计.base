@@ -1,0 +1,80 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+formulas:
+  today_count: 'if(day, if(day == today(), 1, 0), 0)'
+  week_count: "1"
+  unread_count: "1"
+  social_count: "1"
+  unpublished_count: 'if(status, if(status != "已发布", 1, 0), 0)'
+  done_count: 'if(stage, if(stage == "已完稿", 1, 0), 0)'
+  writing_count: 'if(stage, if(stage == "写作中", 1, 0), 0)'
+  research_count: 'if(stage, if(stage == "调研中", 1, 0), 0)'
+properties:
+  formula.today_count:
+    displayName: "今天"
+  formula.week_count:
+    displayName: "近 7 天"
+  formula.unread_count:
+    displayName: "待看"
+  formula.social_count:
+    displayName: "套数"
+  formula.unpublished_count:
+    displayName: "未发布"
+  formula.done_count:
+    displayName: "已完稿"
+  formula.writing_count:
+    displayName: "写作中"
+  formula.research_count:
+    displayName: "调研中"
+views:
+  - type: table
+    name: "今日同行更新"
+    filters:
+      and:
+        - 'file.inFolder("topic-radar/items")'
+        - 'kind == "wechat"'
+        - 'day >= today() - "6d"'
+    order:
+      - formula.today_count
+      - formula.week_count
+    summaries:
+      formula.today_count: Sum
+      formula.week_count: Sum
+  - type: table
+    name: "待看文章"
+    filters:
+      and:
+        - 'file.inFolder("topic-radar/items")'
+        - 'kind == "wechat"'
+        - 'status == "待看"'
+    order:
+      - formula.unread_count
+    summaries:
+      formula.unread_count: Sum
+  - type: table
+    name: "小红书图文"
+    filters:
+      and:
+        - 'file.inFolder("indexes/social")'
+        - 'kind == "social"'
+    order:
+      - formula.social_count
+      - formula.unpublished_count
+    summaries:
+      formula.social_count: Sum
+      formula.unpublished_count: Sum
+  - type: table
+    name: "已完稿文章"
+    filters:
+      and:
+        - 'file.inFolder("indexes/articles")'
+        - 'kind == "article"'
+    order:
+      - formula.done_count
+      - formula.writing_count
+      - formula.research_count
+    summaries:
+      formula.done_count: Sum
+      formula.writing_count: Sum
+      formula.research_count: Sum

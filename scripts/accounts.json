@@ -1,0 +1,41 @@
+{
+  "since_days": 14,
+  "per_account": 12,
+  "accounts": [
+    {
+      "name": "程序员鱼皮",
+      "feeds": [],
+      "comment": "没有找到稳定公开 RSS。自建 WeWeRSS 或 Wechat2RSS 后把地址填到 feeds。"
+    },
+    {
+      "name": "苍何",
+      "feeds": [],
+      "comment": "没有找到稳定公开 RSS。自建 WeWeRSS 或 Wechat2RSS 后把地址填到 feeds。"
+    },
+    {
+      "name": "卡兹克",
+      "feeds": [
+        "https://wechat2rss.xlab.app/feed/7b1c10c25bdfe69d0a08a5349cf3b032e55f4f05.xml",
+        "https://wechat2rss.bestblogs.dev/feed/ff621c3e98d6ae6fceb3397e57441ffc6ea3c17f.xml"
+      ],
+      "comment": "数字生命卡兹克。第一条不行时用第二条。"
+    },
+    {
+      "name": "袋鼠帝",
+      "feeds": [
+        "https://wechat2rss.bestblogs.dev/feed/24d0930cc9f4f0c708182dc1c087d41e1f4cbd33.xml"
+      ],
+      "comment": "袋鼠帝 AI 客栈。"
+    },
+    {
+      "name": "空格",
+      "feeds": [],
+      "comment": "没有找到稳定公开 RSS。自建 WeWeRSS 或 Wechat2RSS 后把地址填到 feeds。"
+    },
+    {
+      "name": "摸鱼小李",
+      "feeds": [],
+      "comment": "没有找到稳定公开 RSS。自建 WeWeRSS 或 Wechat2RSS 后把地址填到 feeds。"
+    }
+  ]
+}
